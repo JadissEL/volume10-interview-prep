@@ -1,0 +1,43 @@
+/**
+ * Tokens extraits du site volume10.com (Webflow)
+ * --gray, --beige, --red, --purple, --dark-blue, --green, etc.
+ */
+:root {
+  --v10-gray: #e6e4e4;
+  --v10-beige: #e3c9ab;
+  --v10-light-gray: #d9d9d9;
+  --v10-ink: #000000;
+  --v10-muted: #717171;
+  --v10-dim: #6d6d6d;
+  --v10-red: #f05733;
+  --v10-purple: #d987d8;
+  --v10-blue: #9db0db;
+  --v10-dark-blue: #4580dc;
+  --v10-green: #387a47;
+  --v10-white: #ffffff;
+
+  /* Piliers services (onglets homepage) */
+  --v10-strategy: var(--v10-red);
+  --v10-innovation: var(--v10-purple);
+  --v10-ecosystem: var(--v10-dark-blue);
+  --v10-intelligence: var(--v10-green);
+}
+
+@keyframes v10-lineUp {
+  0% {
+    transform-origin: 50% 100%;
+    transform: scale3d(1, 0.045, 1);
+  }
+  50% {
+    transform-origin: 50% 100%;
+    transform: scale3d(1, 1, 1);
+  }
+  51% {
+    transform-origin: 50% 0%;
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    transform-origin: 50% 0%;
+    transform: scale3d(1, 0.045, 1);
+  }
+}

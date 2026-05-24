@@ -1,0 +1,257 @@
+@import 'tailwindcss';
+@import './styles/volume10-brand.css';
+
+@theme {
+  --font-sans: 'Poppins', system-ui, sans-serif;
+
+  --color-v10-bg: #e6e4e4;
+  --color-v10-beige: #e3c9ab;
+  --color-v10-paper: #ffffff;
+  --color-v10-ink: #000000;
+  --color-v10-muted: #717171;
+  --color-v10-dim: #6d6d6d;
+  --color-v10-accent: #f05733;
+  --color-v10-red: #f05733;
+  --color-v10-purple: #d987d8;
+  --color-v10-blue: #9db0db;
+  --color-v10-dark-blue: #4580dc;
+  --color-v10-green: #387a47;
+  --color-v10-light-gray: #d9d9d9;
+  --color-v10-line: rgba(0, 0, 0, 0.08);
+  --color-v10-glow: rgba(240, 87, 51, 0.15);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-v10-bg);
+  color: var(--color-v10-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+::selection {
+  background: var(--color-v10-ink);
+  color: var(--color-v10-paper);
+}
+
+/* Logo VOLUME10 — comme sur le site */
+.logo-v10 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Labels type OUR MISSION / CASE STUDY */
+.label-caps {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-v10-red);
+}
+
+.label-caps-neutral {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-v10-muted);
+}
+
+.label-caps-accent {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-v10-red);
+}
+
+/* Titres hero — Poppins, pas serif */
+.headline-xl {
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-v10-ink);
+}
+
+.headline-lg {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--color-v10-ink);
+}
+
+.rule-accent {
+  height: 3px;
+  width: 3rem;
+  background: var(--color-v10-red);
+  margin-top: 1rem;
+}
+
+/* Cartes — fond blanc sur gris, sobre */
+.card-surface {
+  border-radius: 0;
+  border: none;
+  background: var(--color-v10-paper);
+  box-shadow: none;
+}
+
+.card-surface::before {
+  display: none;
+}
+
+/* Nav — underline-up (site Volume10) */
+.nav-v10 {
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-v10-ink);
+  padding-bottom: 6px;
+  white-space: nowrap;
+}
+
+.nav-v10::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: currentColor;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-v10:hover::before {
+  opacity: 1;
+  animation: v10-lineUp 0.3s ease forwards;
+}
+
+.nav-v10[aria-current='page']::before {
+  opacity: 1;
+  transform: scale3d(1, 0.045, 1);
+  transform-origin: 50% 100%;
+}
+
+/* Lien souligné au survol */
+.link-underline-up {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.link-underline-up::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: currentColor;
+  opacity: 0;
+}
+
+.link-underline-up:hover::before {
+  opacity: 1;
+  animation: v10-lineUp 0.3s ease forwards;
+}
+
+/* CTA — bandeau sombre du footer site */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-v10-ink);
+  color: var(--color-v10-paper);
+  border: 1px solid var(--color-v10-ink);
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-cta:hover {
+  background: transparent;
+  color: var(--color-v10-ink);
+}
+
+/* CTA avec pulsation douce — accent Volume10 */
+@keyframes v10-cta-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--color-v10-glow);
+  }
+  50% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
+.btn-cta-pulse {
+  animation: v10-cta-pulse 2.8s ease-in-out infinite;
+}
+
+.btn-cta-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.65rem 1.1rem;
+  background: var(--color-v10-paper);
+  color: var(--color-v10-ink);
+  border: 1px solid var(--color-v10-line);
+}
+
+.btn-cta-outline:hover {
+  border-color: var(--color-v10-ink);
+}
+
+.stat-value {
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-v10-ink);
+}
+
+/* Bandeau piliers (Strategy / Innovation / Ecosystem / Intelligence) */
+.pillar-strategy {
+  background-color: var(--color-v10-red);
+}
+.pillar-innovation {
+  background-color: var(--color-v10-purple);
+}
+.pillar-ecosystem {
+  background-color: var(--color-v10-dark-blue);
+}
+.pillar-intelligence {
+  background-color: var(--color-v10-green);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .nav-v10:hover::before,
+  .link-underline-up:hover::before {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    height: 2px;
+  }
+  .btn-cta-pulse {
+    animation: none;
+  }
+}
